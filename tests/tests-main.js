@@ -202,6 +202,13 @@ var TestController = cc.LayerGradient.extend({
 TestController.YOffset = 0;
 var testNames = [
     {
+        title:"UI Test",
+        platforms: PLATFORM_ALL,
+        testScene:function () {
+            return new UITestScene();
+        }
+    },
+    {
         title:"ActionManager Test",
         platforms: PLATFORM_ALL,
         testScene:function () {
