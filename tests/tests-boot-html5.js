@@ -33,7 +33,7 @@
         showFPS:true,
         loadExtension:true,
         frameRate:60,
-        renderMode:0,       //Choose of RenderMode: 0(default), 1(Canvas only), 2(WebGL only)
+        renderMode:1,       //Choose of RenderMode: 0(default), 1(Canvas only), 2(WebGL only)
         tag:'gameCanvas', //the dom element to run cocos2d on
         engineDir:'../../cocos2d/',
         //SingleEngineFile:'../../lib/Cocos2d-html5-v2.1.2.beta2.min.js',
@@ -112,7 +112,17 @@
             'ExtensionsTest/S9SpriteTest/S9SpriteTest.js',
 
             'Box2dTest/Box2dTest.js',
-            'ChipmunkTest/ChipmunkTest.js']
+            'ChipmunkTest/ChipmunkTest.js',
+            
+            'UITest/UITest.js',
+            'UITest/ComponentTest.js',
+            'UITest/VBoxTest.js',
+            'UITest/HBoxTest.js',
+            'UITest/GridBoxTest.js',
+            'UITest/FlowBoxTest.js',
+            'UITest/BorderBoxTest.js',
+            'UITest/CardBoxTest.js',
+            'UITest/AbsoluteBoxTest.js']
 
     };
 
