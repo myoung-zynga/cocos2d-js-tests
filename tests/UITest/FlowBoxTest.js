@@ -50,6 +50,23 @@ var FlowBoxTest1 = UIBasicLayer.extend({
         var red = new cc.Color4B(255,0,0,1);
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
+        var sprite = cc.Sprite.create(s_pathGrossini);
+        sprite.setTag("Sprite");
+        sprite.setAnchorPoint(0, 0);        
+        var sprite2 = cc.Sprite.create(s_pathGrossini);
+        sprite2.setTag("Sprite2");
+        sprite2.setAnchorPoint(0, 0);        
+        
+        var spriteContainer = new cc.ui.boxes.VBox();
+        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
+        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        spriteContainer.setTag("SpriteBox");
+        spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+        spriteContainer.setMargin(5, 5, 5, 5);
+
+        spriteContainer.addChild(sprite);
+        testContainer.addChild(sprite2);
+        //testContainer.addChild(spriteContainer);
 
         for (var i = 0; i < 6; i++) {
             // Create some components and add to the vbox
@@ -65,8 +82,14 @@ var FlowBoxTest1 = UIBasicLayer.extend({
             c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
             c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
 
-            testContainer.addChild(c);
+            if (i == 2) {
+                testContainer.addChild(spriteContainer);
+            } else {
+                testContainer.addChild(c);
+            }
         }
+
+        //testContainer.addChild(sprite);
 
         testContainer.doLayout(s.width, s.height);
         cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);

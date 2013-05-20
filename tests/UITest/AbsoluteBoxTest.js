@@ -53,6 +53,22 @@ var AbsoluteBoxTest1 = UIBasicLayer.extend({
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
 
+        var sprite = cc.Sprite.create(s_pathGrossini);
+        sprite.setTag("Sprite");
+        sprite.setAnchorPoint(0, 0);        
+        sprite.setPosition(20, 200);
+        
+        var spriteContainer = new cc.ui.boxes.VBox();
+        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
+        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
+        spriteContainer.setTag("SpriteBox");
+        spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+        spriteContainer.setMargin(5, 5, 5, 5);
+
+        //spriteContainer.addChild(sprite);
+        testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
+
         c = new cc.ui.Component();
         c.setPreferredSize(40, 40);
         c.setMargin(5, 5, 5, 5);

@@ -51,6 +51,22 @@ var CardBoxTest1 = UIBasicLayer.extend({
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
 
+        var sprite = cc.Sprite.create(s_pathGrossini);
+        sprite.setTag("Sprite");
+        sprite.setAnchorPoint(0, 0);        
+        
+        var spriteContainer = new cc.ui.boxes.VBox();
+        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        spriteContainer.setTag("SpriteBox");
+        spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+        spriteContainer.setMargin(5, 5, 5, 5);
+
+        spriteContainer.addChild(sprite);
+        //testContainer.addChild(sprite);
+        testContainer.addChild(spriteContainer);
+
+
         for (var i = 0; i < 6; i++) {
             // Create some components and add to the vbox
             c = new cc.ui.Component();
@@ -77,7 +93,7 @@ var CardBoxTest1 = UIBasicLayer.extend({
         testContainer.stretchAndAlign(s.width, s.height);
         this.addChild(testContainer);
 
-        testContainer.setCurrentIndex(1);
+        testContainer.setCurrentIndex(0);
     },
 
     title:function () {

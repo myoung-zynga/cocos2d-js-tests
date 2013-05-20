@@ -51,6 +51,30 @@ var VBoxTest1 = UIBasicLayer.extend({
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
 
+        var sprite = cc.Sprite.create(s_pathGrossini);
+        sprite.setTag("Sprite");
+        sprite.setAnchorPoint(0, 0);        
+        
+        var spriteContainer = new cc.ui.boxes.VBox();
+        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        spriteContainer.setTag("SpriteBox");
+        spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+        spriteContainer.setMargin(5, 5, 5, 5);
+
+        spriteContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
+        
+        //testContainer.addChild(sprite);
+        
+        
+        /*
+        var n = new cc.Node();
+        n.setAnchorPoint(0, 0);
+        n.addChild(sprite);
+        testContainer.addChild(n);
+        */
+
         for (var i = 0; i < 6; i++) {
             // Create some components and add to the vbox
             c = new cc.ui.Component();
@@ -64,21 +88,37 @@ var VBoxTest1 = UIBasicLayer.extend({
                 c.setColor(cc.ui.Constants.COLOR_BG, white);
                 c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
                 c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+                if (i == 3) {
+                    testContainer.addChild(spriteContainer);
+                }
             } else {
                 c.setColor(cc.ui.Constants.COLOR_BG, blue);
                 c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM);
                 c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
             }
             testContainer.addChild(c);
-        }
 
-        var w = 400;//s.width;
-        var h = 400;//s.height;
+        }
+        /*
+            c = new cc.ui.Component();
+            c.setColor(cc.ui.Constants.COLOR_BG, red);
+            c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM);
+            c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
+            c.setPreferredSize(40, 40);
+            c.setMargin(5, 5, 5, 5);
+            spriteContainer.addChild(c);
+        */
+        //testContainer.addChild(spriteContainer);
+        
+
+        var w = s.width;
+        var h = s.height;
         testContainer.doLayout(w, h);
         cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);
         testContainer.stretchAndAlign(w, h);
         this.addChild(testContainer);
-    },
+
+     },
 
     title:function () {
         return "VBox Test";

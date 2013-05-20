@@ -51,6 +51,21 @@ var HBoxTest1 = UIBasicLayer.extend({
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
 
+        var sprite = cc.Sprite.create(s_pathGrossini);
+        sprite.setTag("Sprite");
+        sprite.setAnchorPoint(0, 0);        
+        
+        var spriteContainer = new cc.ui.boxes.VBox();
+        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
+        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
+        spriteContainer.setTag("SpriteBox");
+        spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+        spriteContainer.setMargin(5, 5, 5, 5);
+
+        spriteContainer.addChild(sprite);
+        //testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
+
         for (var i = 0; i < 6; i++) {
             // Create some components and add to the vbox
             c = new cc.ui.Component();
@@ -58,15 +73,20 @@ var HBoxTest1 = UIBasicLayer.extend({
             c.setMargin(5, 5, 5, 5);
             if (i < 2) {
                 c.setColor(cc.ui.Constants.COLOR_BG, red);
-                c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM); // default
+                c.setVertAlign(cc.ui.Constants.ALGN_TOP); // default
                 c.setHorizAlign(cc.ui.Constants.ALGN_LEFT); // default
             } else if (i < 4) {
                 c.setColor(cc.ui.Constants.COLOR_BG, white);
                 c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
-                c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+                c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);                
+                if (i == 3) {
+                    spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+                    spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+                    testContainer.addChild(spriteContainer);
+                }                
             } else {
                 c.setColor(cc.ui.Constants.COLOR_BG, blue);
-                c.setVertAlign(cc.ui.Constants.ALGN_TOP);
+                c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM);
                 c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
             }
             testContainer.addChild(c);

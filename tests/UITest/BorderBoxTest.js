@@ -51,6 +51,21 @@ var BorderBoxTest1 = UIBasicLayer.extend({
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
 
+        var sprite = cc.Sprite.create(s_pathGrossini);
+        sprite.setTag("Sprite");
+        sprite.setAnchorPoint(0, 0);        
+        
+        var spriteContainer = new cc.ui.boxes.VBox();
+        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        spriteContainer.setTag("SpriteBox");
+        spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+        spriteContainer.setMargin(5, 5, 5, 5);
+
+        spriteContainer.addChild(sprite);
+        //testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
+
         var shouldStretch = true;
         // North
         c = new cc.ui.Component();
@@ -61,6 +76,8 @@ var BorderBoxTest1 = UIBasicLayer.extend({
         c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
         c.setShouldStretch(shouldStretch);
         testContainer.addChild(c);
+        //testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
 
         // South
         c = new cc.ui.Component();
@@ -71,6 +88,8 @@ var BorderBoxTest1 = UIBasicLayer.extend({
         c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
         c.setShouldStretch(shouldStretch);
         testContainer.addChild(c);
+        //testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
 
         // West
         c = new cc.ui.Component();
@@ -81,6 +100,8 @@ var BorderBoxTest1 = UIBasicLayer.extend({
         c.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
         c.setShouldStretch(shouldStretch);
         testContainer.addChild(c);
+        //testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
 
         // East
         c = new cc.ui.Component();
@@ -91,6 +112,8 @@ var BorderBoxTest1 = UIBasicLayer.extend({
         c.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
         c.setShouldStretch(shouldStretch);
         testContainer.addChild(c);
+        //testContainer.addChild(sprite);
+        //testContainer.addChild(spriteContainer);
 
         // Center
         c = new cc.ui.Component();
@@ -100,8 +123,9 @@ var BorderBoxTest1 = UIBasicLayer.extend({
         c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM);
         c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
         c.setShouldStretch(shouldStretch);
-        testContainer.addChild(c);
-
+        //testContainer.addChild(c);
+        //testContainer.addChild(spriteContainer);
+        testContainer.addChild(spriteContainer);
 
         testContainer.doLayout(s.width, s.height);
         cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);
