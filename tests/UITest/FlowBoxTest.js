@@ -55,8 +55,19 @@ var FlowBoxTest1 = UIBasicLayer.extend({
         sprite.setAnchorPoint(0, 0);        
         var sprite2 = cc.Sprite.create(s_pathGrossini);
         sprite2.setTag("Sprite2");
-        sprite2.setAnchorPoint(0, 0);        
+        sprite2.setAnchorPoint(0, 0);
         
+        var nodebox1 = new cc.ui.boxes.NodeBox(sprite);
+        nodebox1.setVertAlign(cc.ui.Constants.ALGN_TOP);
+        nodebox1.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        nodebox1.setTag("SpriteBox");
+        nodebox1.setColor(cc.ui.Constants.COLOR_BG, blue);
+        nodebox1.setMargin(5, 5, 5, 5);
+
+        var nodebox2 = new cc.ui.boxes.NodeBox(sprite2);     
+        testContainer.addChild(nodebox2); 
+        
+        /* Old container tests
         var spriteContainer = new cc.ui.boxes.VBox();
         spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
         spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
@@ -67,6 +78,7 @@ var FlowBoxTest1 = UIBasicLayer.extend({
         spriteContainer.addChild(sprite);
         testContainer.addChild(sprite2);
         //testContainer.addChild(spriteContainer);
+        */
 
         for (var i = 0; i < 6; i++) {
             // Create some components and add to the vbox
@@ -82,8 +94,10 @@ var FlowBoxTest1 = UIBasicLayer.extend({
             c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
             c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
 
-            if (i == 2) {
-                testContainer.addChild(spriteContainer);
+            if (i == 2) 
+            {
+                // testContainer.addChild(spriteContainer);
+                testContainer.addChild(nodebox1);
             } else {
                 testContainer.addChild(c);
             }
