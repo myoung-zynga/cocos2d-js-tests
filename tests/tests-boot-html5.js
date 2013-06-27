@@ -123,7 +123,7 @@
             'UITest/BorderBoxTest.js',
             'UITest/CardBoxTest.js',
             'UITest/AbsoluteBoxTest.js',
-			'UITest/ParticleUITest.js']
+            'UITest/ParticleUITest.js']
 
     };
 

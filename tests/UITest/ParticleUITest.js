@@ -30,90 +30,90 @@ var ParticleDemo = UIBasicLayer.extend({
         scene.addChild(layer);
         cc.Director.getInstance().replaceScene(scene);
     },
-	 onEnter:function () {
-			this._super();
+     onEnter:function () {
+            this._super();
 
-			var s = cc.Director.getInstance().getWinSize();
+            var s = cc.Director.getInstance().getWinSize();
 
-			// add title
-			var label = cc.LabelTTF.create(this.title(), "Arial", 32);
-			this.addChild(label, 1);
-			label.setPosition(cc.p(s.width / 2, s.height - 50));
+            // add title
+            var label = cc.LabelTTF.create(this.title(), "Arial", 32);
+            this.addChild(label, 1);
+            label.setPosition(cc.p(s.width / 2, s.height - 50));
 
-			this.setTouchEnabled(true);
-			// this.scheduleUpdate();
+            this.setTouchEnabled(true);
+            // this.scheduleUpdate();
 
-			var testContainer = new cc.ui.boxes.HBox();
-			var c = null;
+            var testContainer = new cc.ui.boxes.HBox();
+            var c = null;
 
-			var red = new cc.Color4B(255,0,0,1);
-			var white = new cc.Color4B(255,255,255,1);
-			var blue = new cc.Color4B(0, 0, 255, 1);
+            var red = new cc.Color4B(255,0,0,1);
+            var white = new cc.Color4B(255,255,255,1);
+            var blue = new cc.Color4B(0, 0, 255, 1);
 
-			var sprite = cc.Sprite.create(s_pathGrossini);
-			sprite.setTag("Sprite");
-			sprite.setAnchorPoint(0, 0);        
-			
-			var spriteContainer = new cc.ui.boxes.VBox();
-			spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
-			spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
-			spriteContainer.setTag("SpriteBox");
-			spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
-			spriteContainer.setMargin(5, 5, 5, 5);
+            var sprite = cc.Sprite.create(s_pathGrossini);
+            sprite.setTag("Sprite");
+            sprite.setAnchorPoint(0, 0);        
+            
+            var spriteContainer = new cc.ui.boxes.VBox();
+            spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
+            spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
+            spriteContainer.setTag("SpriteBox");
+            spriteContainer.setColor(cc.ui.Constants.COLOR_BG, blue);
+            spriteContainer.setMargin(5, 5, 5, 5);
 
-			spriteContainer.addChild(sprite);
-			//testContainer.addChild(sprite);
-			//testContainer.addChild(spriteContainer);
+            spriteContainer.addChild(sprite);
+            //testContainer.addChild(sprite);
+            //testContainer.addChild(spriteContainer);
 
-			for (var i = 0; i < 6; i++) {
-				// Create some components and add to the vbox
-				c = new cc.ui.Component();
-				c.setPreferredSize(40, 40);
-				c.setMargin(5, 5, 5, 5);
-				if (i < 2) {
-					c.setColor(cc.ui.Constants.COLOR_BG, red);
-					c.setVertAlign(cc.ui.Constants.ALGN_TOP); // default
-					c.setHorizAlign(cc.ui.Constants.ALGN_LEFT); // default
-				} else if (i < 4) {
-					c.setColor(cc.ui.Constants.COLOR_BG, white);
-					c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
-					c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);   		
-					if (i == 3) {
-						spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
-						spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
-						// add one emitter
-						var emitter = cc.ParticleFireworks.create();
-						var comp = new cc.ui.Component();
-						emitter.setPosition(0,0);
-						comp.addChild(emitter);
-						c.addChild(comp);
-						var myTexture = cc.TextureCache.getInstance().addImage(s_stars1);
-						emitter.setTexture(myTexture);
-						if (emitter.setShapeType)
-							emitter.setShapeType(cc.PARTICLE_STAR_SHAPE);		
-						testContainer.addChild(spriteContainer);
-					}                
-				} else {
-					c.setColor(cc.ui.Constants.COLOR_BG, blue);
-					c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM);
-					c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
-				}
-				testContainer.addChild(c);
-			}
+            for (var i = 0; i < 6; i++) {
+                // Create some components and add to the vbox
+                c = new cc.ui.Component();
+                c.setPreferredSize(40, 40);
+                c.setMargin(5, 5, 5, 5);
+                if (i < 2) {
+                    c.setColor(cc.ui.Constants.COLOR_BG, red);
+                    c.setVertAlign(cc.ui.Constants.ALGN_TOP); // default
+                    c.setHorizAlign(cc.ui.Constants.ALGN_LEFT); // default
+                } else if (i < 4) {
+                    c.setColor(cc.ui.Constants.COLOR_BG, white);
+                    c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+                    c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);           
+                    if (i == 3) {
+                        spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+                        spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+                        // add one emitter
+                        var emitter = cc.ParticleFireworks.create();
+                        var comp = new cc.ui.Component();
+                        emitter.setPosition(0,0);
+                        comp.addChild(emitter);
+                        c.addChild(comp);
+                        var myTexture = cc.TextureCache.getInstance().addImage(s_stars1);
+                        emitter.setTexture(myTexture);
+                        if (emitter.setShapeType)
+                            emitter.setShapeType(cc.PARTICLE_STAR_SHAPE);        
+                        testContainer.addChild(spriteContainer);
+                    }                
+                } else {
+                    c.setColor(cc.ui.Constants.COLOR_BG, blue);
+                    c.setVertAlign(cc.ui.Constants.ALGN_BOTTOM);
+                    c.setHorizAlign(cc.ui.Constants.ALGN_RIGHT);
+                }
+                testContainer.addChild(c);
+            }
 
-			testContainer.doLayout(s.width, s.height);
-			cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);
-			testContainer.stretchAndAlign(s.width, s.height);
-			this.addChild(testContainer);
-		},
+            testContainer.doLayout(s.width, s.height);
+            cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);
+            testContainer.stretchAndAlign(s.width, s.height);
+            this.addChild(testContainer);
+        },
 
-		title:function () {
-			return "Particle UI Test";
-		},
+        title:function () {
+            return "Particle UI Test";
+        },
 
-		update:function (dt) {
-		}
-	});
+        update:function (dt) {
+        }
+    });
 
 
 
