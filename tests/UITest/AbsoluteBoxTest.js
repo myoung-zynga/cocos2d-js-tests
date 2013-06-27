@@ -58,6 +58,16 @@ var AbsoluteBoxTest1 = UIBasicLayer.extend({
         sprite.setAnchorPoint(0, 0);        
         sprite.setPosition(20, 200);
         
+        var nodebox = new cc.ui.boxes.NodeBox(sprite);
+        nodebox.setVertAlign(cc.ui.Constants.ALGN_TOP);
+        nodebox.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
+        nodebox.setTag("SpriteBox");
+        nodebox.setColor(cc.ui.Constants.COLOR_BG, blue);
+        nodebox.setMargin(5, 5, 5, 5);
+        
+        testContainer.addChild(nodebox);
+        
+        /* Old container tests
         var spriteContainer = new cc.ui.boxes.VBox();
         spriteContainer.setVertAlign(cc.ui.Constants.ALGN_TOP);
         spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
@@ -68,6 +78,7 @@ var AbsoluteBoxTest1 = UIBasicLayer.extend({
         //spriteContainer.addChild(sprite);
         testContainer.addChild(sprite);
         //testContainer.addChild(spriteContainer);
+        */
 
         c = new cc.ui.Component();
         c.setPreferredSize(40, 40);

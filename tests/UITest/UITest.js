@@ -32,7 +32,8 @@ var UITests = [
     "FlowBox Test",
     "BorderBox Test",
     "CardBox Test",
-    "AbsoluteBox Test"
+    "AbsoluteBox Test",
+	"Particle Test"
 ];
 
 ////////////////////////////////////////////////////////
@@ -93,6 +94,9 @@ var UIMainLayer = cc.LayerGradient.extend({
             case 7:
                 runAbsoluteBoxTest();
                 break;
+			case 8:
+				runParticleTestUI();
+				break;
             default:
                 break;
         }
