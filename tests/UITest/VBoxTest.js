@@ -53,8 +53,16 @@ var VBoxTest1 = UIBasicLayer.extend({
 
         var sprite = cc.Sprite.create(s_pathGrossini);
         sprite.setTag("Sprite");
-        sprite.setAnchorPoint(0, 0);        
+        sprite.setAnchorPoint(0, 0);
         
+        var nodebox = new cc.ui.boxes.NodeBox(sprite);
+        nodebox.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+        nodebox.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        nodebox.setTag("SpriteBox");
+        nodebox.setColor(cc.ui.Constants.COLOR_BG, blue);
+        nodebox.setMargin(5, 5, 5, 5);
+        
+        /* Old container tests
         var spriteContainer = new cc.ui.boxes.VBox();
         spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
         spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
@@ -66,6 +74,7 @@ var VBoxTest1 = UIBasicLayer.extend({
         //testContainer.addChild(spriteContainer);
         
         //testContainer.addChild(sprite);
+        */
         
         
         /*
@@ -88,8 +97,10 @@ var VBoxTest1 = UIBasicLayer.extend({
                 c.setColor(cc.ui.Constants.COLOR_BG, white);
                 c.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
                 c.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
-                if (i == 3) {
-                    testContainer.addChild(spriteContainer);
+                if (i == 3) 
+                {
+                    testContainer.addChild(nodebox);
+                    // testContainer.addChild(spriteContainer);
                 }
             } else {
                 c.setColor(cc.ui.Constants.COLOR_BG, blue);

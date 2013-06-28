@@ -122,7 +122,8 @@
             'UITest/FlowBoxTest.js',
             'UITest/BorderBoxTest.js',
             'UITest/CardBoxTest.js',
-            'UITest/AbsoluteBoxTest.js']
+            'UITest/AbsoluteBoxTest.js',
+            'UITest/ParticleUITest.js']
 
     };
 

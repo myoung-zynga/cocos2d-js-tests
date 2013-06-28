@@ -55,8 +55,18 @@ var GridBoxTest1 = UIBasicLayer.extend({
         sprite.setAnchorPoint(0, 0);        
         var sprite2 = cc.Sprite.create(s_pathGrossini);
         sprite2.setTag("Sprite2");
-        sprite2.setAnchorPoint(0, 0);        
+        sprite2.setAnchorPoint(0, 0);    
         
+        var nodebox1 = new cc.ui.boxes.NodeBox(sprite);
+        nodebox1.setVertAlign(cc.ui.Constants.ALGN_TOP);
+        nodebox1.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        nodebox1.setTag("SpriteBox");
+        nodebox1.setColor(cc.ui.Constants.COLOR_BG, blue);
+        nodebox1.setMargin(5, 5, 5, 5);
+
+        var nodebox2 = new cc.ui.boxes.NodeBox(sprite2);     
+        
+        /* Old container tests
         var spriteContainer = new cc.ui.boxes.VBox();
         spriteContainer.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
         spriteContainer.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
@@ -65,6 +75,7 @@ var GridBoxTest1 = UIBasicLayer.extend({
         spriteContainer.setMargin(5, 5, 5, 5);
         
         spriteContainer.addChild(sprite);
+        */
 
         //testContainer.addChild(spriteContainer);
 
@@ -86,7 +97,8 @@ var GridBoxTest1 = UIBasicLayer.extend({
         c2.setColor(cc.ui.Constants.COLOR_BG, white);
         testContainer.addChild(c2);
         */
-        testContainer.addChild(spriteContainer);
+        // testContainer.addChild(spriteContainer);
+        testContainer.addChild(nodebox1);
 
         var c3 = new cc.ui.Component();
         c3.setPreferredSize(40, 40);
@@ -113,7 +125,8 @@ var GridBoxTest1 = UIBasicLayer.extend({
         c5.setColor(cc.ui.Constants.COLOR_BG, blue);
         testContainer.addChild(c5);
         */
-        testContainer.addChild(sprite2);
+        // testContainer.addChild(sprite2);
+        testContainer.addChild(nodebox2);
         
         var c6 = new cc.ui.Component();
         c6.setPreferredSize(40, 40);
