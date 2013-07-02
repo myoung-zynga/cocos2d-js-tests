@@ -69,6 +69,15 @@ var BackgroundTest = UIBasicLayer.extend(
         colorTest.setHorizAlign(cc.ui.Constants.ALGN_CENTER);       
         testContainer.addChild(colorTest);
 
+        var imageTest = new cc.ui.Component();
+        imageTest.setMargin(10, 10, 10, 10);
+        imageTest.setPadding(10, 10, 10, 10);
+        imageTest.setPreferredSize(100, 100);
+        imageTest.setImage(cc.ui.Constants.IMAGE_BG, s_pathGrossini);
+        imageTest.setVertAlign(cc.ui.Constants.ALGN_MIDDLE);
+        imageTest.setHorizAlign(cc.ui.Constants.ALGN_CENTER);
+        testContainer.addChild(imageTest);
+
         testContainer.doLayout(s.width, s.height);
         cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);
         testContainer.stretchAndAlign(s.width, s.height);
