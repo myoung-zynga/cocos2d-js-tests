@@ -25,7 +25,7 @@
 var TextLabelTest = UIBasicLayer.extend({
  
     showCurrentTest:function () {
-        var layer = new HBoxTest1(true, 2, this._curCase);
+        var layer = new TestLabelTest();
         var scene = cc.Scene.create();
         scene.addChild(layer);
         cc.Director.getInstance().replaceScene(scene);
@@ -34,7 +34,7 @@ var TextLabelTest = UIBasicLayer.extend({
     onEnter:function () {
         this._super();
 
-        var s = cc.Director.getInstance().getWinSize();
+        var s = cc.size(100,10);
 
         // add title
         var label = new cc.ui.LabelTTF("This should be red, and semi transparent and not all can be shown","Arial",25);
@@ -84,10 +84,11 @@ var TextLabelTest = UIBasicLayer.extend({
 
         var label = new cc.ui.LabelTTF("should have been replaced","Times New Roman",18);
 	    label.setColor(cc.blue());
-//	    label.setPosition(cc.p(100,100));
-        label.setString("Blue text aligned left, vertical center");
+	    //label.setPosition(cc.p(100,100));
+        label.setString("Blue text aligned left, vertical top");
+
         label.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
-        label.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+        label.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         label.setVertAlign(cc.ui.Constants.ALGN_TOP);
         label.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
         testContainer.addChild(label, 1);     
