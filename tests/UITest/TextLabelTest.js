@@ -38,39 +38,39 @@ var TextLabelTest = UIBasicLayer.extend({
 
         // add title
         var label = new cc.ui.LabelTTF("This should be red, and semi transparent and not all can be shown","Arial",25);
-	label.setColor(cc.red());
-	label.setPosition(cc.p(100,100));
-	cc.Assert(label.getColor() != cc.red(), "set color does not work");
+        label.setColor(cc.red());
+        label.setPosition(cc.p(100,100));
+        cc.Assert(label.getColor() != cc.red(), "set color does not work");
         label.setOpacity(50);
         label.stretchAndAlign(300,100); 
         this.addChild(label, 1);
 
-var temp = new cc.ui.LabelTTF("White H:C and V:C","Arial",25);
+        var temp = new cc.ui.LabelTTF("White H:C and V:C","Arial",25);
         temp.setColor(cc.white());    
-        temp.setPosition(cc.p(0, 0));  
-        temp.stretchAndAlign(300,100); 
-        label.setHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-        label.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-	this.addChild(temp);
+        temp.setPosition(cc.p(0, 0));
+        temp.setHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        temp.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+        temp.stretchAndAlign(300,100);
+	    this.addChild(temp);
 
-var temp = new cc.ui.LabelTTF("White H:R and V:B","Impact",30);
-        temp.setColor(cc.white());    
-        temp.setPosition(cc.p(400, 0));  
-        temp.stretchAndAlign(300,100); 
-        label.setHorizontalAlignment(cc.TEXT_ALIGNMENT_RIGHT);
-        label.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM);
-	this.addChild(temp);
+        var temp = new cc.ui.LabelTTF("White H:R and V:B","Impact",30);
+        temp.setColor(cc.white());
+        temp.setPosition(cc.p(400, 0));
+        temp.setHorizontalAlignment(cc.TEXT_ALIGNMENT_RIGHT);
+        temp.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM);
+        temp.stretchAndAlign(300,100);
+    	this.addChild(temp);
 
-var temp = new cc.ui.LabelTTF("White H:L and V:T","Arial",25);
+        var temp = new cc.ui.LabelTTF("White H:L and V:T","Arial",25);
         temp.setColor(cc.white());    
-        temp.setPosition(cc.p(400, 200));  
-        temp.stretchAndAlign(300,100); 
-        label.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
-        label.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
-        label.setFontSize(17);
-        label.setDimensions(cc.size(100,100));
-        label.setFontName("Marlett"); 
-	this.addChild(temp);
+        temp.setPosition(cc.p(400, 200));
+        temp.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
+        temp.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        temp.setFontSize(17);
+        temp.setDimensions(cc.size(100,100));
+        temp.setFontName("Marlett");
+        temp.stretchAndAlign(300,100);
+	    this.addChild(temp);
         
         this.setTouchEnabled(true);
         // this.scheduleUpdate();
