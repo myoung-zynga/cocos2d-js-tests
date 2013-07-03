@@ -34,7 +34,8 @@ var UITests = [
     "CardBox Test",
     "AbsoluteBox Test",
     "Particle Test",
-    "Background Test"
+    "Background Test",
+	"Text Label Test"
 ];
 
 ////////////////////////////////////////////////////////
@@ -101,6 +102,9 @@ var UIMainLayer = cc.LayerGradient.extend({
             case 9:
             	runBackgroundTest();
             	break;
+			case 10:
+			    runTextLabelTest();
+				break;
             default:
                 break;
         }

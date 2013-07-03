@@ -124,7 +124,8 @@
             'UITest/CardBoxTest.js',
             'UITest/AbsoluteBoxTest.js',
             'UITest/ParticleUITest.js',
-            'UITest/BackgroundUITest.js']
+            'UITest/BackgroundUITest.js',
+			'UITest/TextLabelTest.js']
 
     };
 
