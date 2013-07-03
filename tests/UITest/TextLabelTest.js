@@ -82,17 +82,15 @@ var TextLabelTest = UIBasicLayer.extend({
         var white = new cc.Color4B(255,255,255,1);
         var blue = new cc.Color4B(0, 0, 255, 1);
 
-
-  var label = new cc.ui.LabelTTF("should of been replaced","Times New Roman",18);
-	label.setColor(cc.blue());
-	//label.setPosition(cc.p(100,100));
+        var label = new cc.ui.LabelTTF("should have been replaced","Times New Roman",18);
+	    label.setColor(cc.blue());
+//	    label.setPosition(cc.p(100,100));
         label.setString("Blue text aligned left, vertical center");
         label.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         label.setVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
         label.setVertAlign(cc.ui.Constants.ALGN_TOP);
         label.setHorizAlign(cc.ui.Constants.ALGN_LEFT);
         testContainer.addChild(label, 1);     
-
 
         testContainer.doLayout(s.width, s.height);
         cc.ui.logI("cc.ui", "testContainer after doLayout: " + testContainer._contentSize.width + ", " + testContainer._contentSize.height);
@@ -101,7 +99,7 @@ var TextLabelTest = UIBasicLayer.extend({
     },
 
     title:function () {
-        return "HBox Test";
+        return "TextLabel Test";
     },
 
     update:function (dt) {
